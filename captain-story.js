@@ -1,0 +1,38 @@
+// Code-native animated illustration; no real pilot likeness or operational claims.
+painScene.classList.add('captain-story');
+const captainStory=[
+ ['训练结束了，问题却没有闭环。','评估与反馈，怎样回到下一次训练？','闭环管理'],
+ ['数据这么多，关键问题在哪里？','海量记录，怎样提取趋势与价值？','数据洞察'],
+ ['除了经验，还能依据什么？','怎样让教检管理获得数据支撑？','管理模式'],
+ ['每个人的短板都不一样。','怎样安排更有针对性的学习与训练？','个性训练']
+];
+painScene.innerHTML=`<div class="captain-story-heading"><small>飞行训练 · 一个业务场景</small><h2>机长的困扰，如何得到回应？</h2></div><div class="captain-stage"><svg class="captain-illustration" viewBox="0 0 580 600" role="img" aria-label="面对资料与训练数据的机长插画"><ellipse cx="285" cy="555" rx="225" ry="22" fill="#002d7644"/><g class="captain-paper paper-back"><rect x="35" y="265" width="105" height="140" rx="9"/><path d="M55 297h65M55 317h55M55 337h65M55 357h40"/></g><g class="captain-paper paper-front"><rect x="410" y="220" width="120" height="155" rx="10"/><path d="M430 250h65M430 275h80M430 300h55M430 325h70"/></g><g class="captain-person"><path d="M185 360Q285 310 385 360l35 180H150z" fill="#eef7ff"/><path d="m258 340 27 32 27-32 15 200h-82z" fill="#fff"/><path d="m285 372-13 20 13 87 13-87z" fill="#002d66"/><path d="M190 369 162 414M381 367l30 47" stroke="#003b74" stroke-width="22"/><path d="m172 392 20 11m-26-1 20 11m-26-1 20 11m211-31-20 11m26-1-20 11m26-1-20 11" stroke="#ffc402" stroke-width="4"/><rect x="325" y="400" width="37" height="6" rx="3" fill="#d9aa32"/><path d="M246 320v26q39 30 78 0v-26" fill="#efb38c"/><g class="captain-head"><ellipse cx="285" cy="239" rx="70" ry="88" fill="#f6c29d"/><path d="M218 224q-18-92 68-95 85 3 69 95l-21-42q-48 18-96-1z" fill="#173b63"/><path d="M208 171q77-59 154 0l-7 30H215z" fill="#f8fbff"/><path d="M211 187h149v19q-73 30-149 0z" fill="#10375e"/><path d="m277 165 8-10 8 10-8 10z" fill="#ffc402"/><path class="captain-brows" d="m244 229 23-7m37 0 23 7" stroke="#173b63" stroke-width="5" stroke-linecap="round"/><g fill="#173b63"><circle cx="256" cy="242" r="4"/><circle cx="315" cy="242" r="4"/></g><path class="captain-frown" d="M267 289q18-15 36 0" stroke="#a65f48" stroke-width="4" fill="none" stroke-linecap="round"/><path class="captain-smile" d="M267 280q18 20 36 0" stroke="#a65f48" stroke-width="4" fill="none" stroke-linecap="round"/></g><path d="M185 420q35 22 65 48l-17 30q-80-21-88-54" fill="#eef7ff"/><path d="M382 420q-35 22-65 48l17 30q80-21 88-54" fill="#eef7ff"/><ellipse cx="252" cy="479" rx="24" ry="15" fill="#f6c29d"/><ellipse cx="316" cy="479" rx="24" ry="15" fill="#f6c29d"/></g><rect x="86" y="520" width="400" height="18" rx="9" fill="#7fbdec"/><path d="M110 538v42M460 538v42" stroke="#7fbdec" stroke-width="10"/><g class="captain-laptop"><path d="M205 440h160l-10 82H215z" fill="#154477" stroke="#8ecbff" stroke-width="2"/><rect x="195" y="520" width="180" height="8" rx="4" fill="#badcf4"/><text x="285" y="488" fill="#ffc402" font-size="24" text-anchor="middle">AI</text></g></svg><div class="captain-question-marks">?<i>?</i></div><div class="captain-name">机长 / 训练业务场景示意</div></div><div class="captain-dialogue">${captainStory.map((x,i)=>`<div class="captain-thought" data-thought="${i}"><span>机长的疑问 · 0${i+1}</span><h3>${x[0]}</h3><p>${x[1]}</p><small>${x[2]}需要进一步提升</small></div>`).join('')}<div class="captain-ai-intro"><div class="captain-ai-icon">AI</div><h3>让 AI 连接<br><em>知识、数据与业务</em></h3><p>把业务问题，转化为可追踪的辅助任务。</p></div><div class="captain-solutions">${[['知识图谱 + 智能问答','关联手册与课程，辅助知识检索、依据溯源。'],['自然语言问数 + 数据分析','围绕训练记录查询统计，辅助识别变化与关注项。'],['能力分析 + 个性化建议','规划连接个人短板、课程资源与针对性指导。'],['报告草稿 + 人工审核','汇总分析与建议，支撑评估、反馈和持续改进。']].map((x,i)=>`<div data-solution="${i}"><b>0${i+1}</b><section><h3>${x[0]}</h3><p>${x[1]}</p></section></div>`).join('')}</div></div><div class="captain-connect"><i></i><span>理解需求 → 连接工具 → 辅助分析 → 人工确认</span></div><div class="captain-ending"><small>AI 辅助，不替代专业判断</small><strong>让问题有回应，让训练有方向。</strong></div><div class="captain-footnote">情景与数据为演示示意 · 能力画像、个性化建议及业务闭环为建设方向，以上线验收为准。</div>`;
+const captainEffects=window.presentationEffects;
+window.presentationEffects=(s,t)=>{
+ if(s!==painScene){captainEffects?.(s,t);return;}
+ const mode=t<16?'questions':t<20?'connect':t<29?'solutions':'ending';
+ s.dataset.storyMode=mode;
+ s.querySelectorAll('[data-thought]').forEach((e,i)=>e.classList.toggle('on',mode==='questions'&&i===Math.min(3,Math.floor(t/4))));
+ s.querySelectorAll('[data-solution]').forEach((e,i)=>e.classList.toggle('on',mode==='solutions'&&t>=20+i*1.7));
+};
+const captainElements=sceneElements;
+sceneElements=function(s){return s===painScene?[...s.querySelectorAll('.captain-story-heading,.captain-stage,.captain-dialogue,.captain-connect,.captain-ending')]:captainElements(s)};
+painScene.dataset.duration='33';
+voices[slides.indexOf(painScene)]='训练结束了，问题却没有闭环。数据这么多，关键问题在哪里？除了经验，还能依据什么？每个人的短板都不一样。通过人工智能连接知识、数据和业务，让问题有回应，让训练有方向。';
+starts=[];total=0;slides.forEach(s=>{starts.push(total);total+=+s.dataset.duration});
+chapterGroups.forEach((g,i)=>{g.start=starts[g.first];g.end=starts[g.last]+ +slides[g.last].dataset.duration;g.duration=g.end-g.start;document.querySelector(`[data-segment="${i}"]`).style.flex=g.duration;document.querySelector(`[data-chapter="${i}"]`).style.flex=g.duration});
+// Layered vector styling keeps the illustration crisp at presentation size.
+const captainDrawing=painScene.querySelector('.captain-illustration');
+captainDrawing.insertAdjacentHTML('afterbegin','<defs><linearGradient id="captain-shirt" x2=".8" y2="1"><stop stop-color="#ffffff"/><stop offset="1" stop-color="#b9d8ef"/></linearGradient><linearGradient id="captain-skin" x2="1" y2=".8"><stop stop-color="#ffdab7"/><stop offset="1" stop-color="#e8aa81"/></linearGradient><linearGradient id="captain-screen" x2="1" y2="1"><stop stop-color="#214e80"/><stop offset="1" stop-color="#0b294b"/></linearGradient><filter id="captain-soft-shadow" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="10" stdDeviation="10" flood-color="#002a61" flood-opacity=".18"/></filter></defs>');
+captainDrawing.querySelectorAll('[fill="#eef7ff"]').forEach(e=>e.setAttribute('fill','url(#captain-shirt)'));
+captainDrawing.querySelectorAll('[fill="#f6c29d"]').forEach(e=>e.setAttribute('fill','url(#captain-skin)'));
+captainDrawing.querySelector('.captain-laptop path').setAttribute('fill','url(#captain-screen)');
+captainDrawing.querySelector('.captain-person').setAttribute('filter','url(#captain-soft-shadow)');
+captainDrawing.querySelector('.captain-head').insertAdjacentHTML('beforeend','<path d="m285 246-5 18h10" fill="none" stroke="#d28f6d" stroke-width="2" stroke-linecap="round"/><ellipse cx="239" cy="266" rx="10" ry="5" fill="#e9a080" opacity=".35"/><ellipse cx="329" cy="266" rx="10" ry="5" fill="#e9a080" opacity=".35"/>');
+captainDrawing.querySelector('.captain-person').insertAdjacentHTML('beforeend','<path d="m247 348 25 37-28 21-18-44m98-14-26 37 29 21 18-44" fill="#ffffff" stroke="#a8c5dc" stroke-width="1.2"/><path d="M327 412h36v32h-36" fill="none" stroke="#afcbe0" stroke-width="1.3"/>');
+painScene.querySelectorAll('.captain-thought').forEach((bubble,i)=>{
+ bubble.querySelector('span').textContent='机长的心声';
+ bubble.querySelector('small').textContent=['希望训练效果，能持续得到反馈。','希望关键变化，不被海量数据淹没。','希望每次判断，都多一份可靠依据。','希望训练建议，真正因人而异。'][i];
+ bubble.insertAdjacentHTML('beforeend','<div class="thought-dots" aria-hidden="true"><i></i><i></i><i></i></div><div class="thought-quote" aria-hidden="true">“</div>');
+});
+const cabinBackdrop=document.createElement('div');cabinBackdrop.className='captain-cabin';cabinBackdrop.setAttribute('aria-hidden','true');cabinBackdrop.innerHTML='<div class="cabin-window"><div class="cabin-cloud cloud-a"></div><div class="cabin-cloud cloud-b"></div><i></i></div><div class="cabin-horizon"></div><div class="cabin-floor"></div>';painScene.prepend(cabinBackdrop);

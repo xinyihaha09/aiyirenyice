@@ -1,0 +1,21 @@
+/* Scene changes travel across the canvas. No opacity or blur interpolation. */
+.slide,.slide.active{transition:none!important;filter:none!important;transform:none;opacity:1;will-change:transform;visibility:hidden}
+.slide.active,.slide.in-transit{visibility:visible}
+.scene-seam,.module-transition{display:none!important}
+.slide.in-transit{pointer-events:none;background:transparent!important;z-index:2}
+.slide.active{z-index:3}
+.slide{will-change:auto}
+.slide.in-transit .video-brand{visibility:hidden}
+.slide.result-scene .result-story,.slide.result-scene .result-review{opacity:1;transform:none;transition:none}
+.slide[data-original="1"]{padding:64px 65px 94px;display:flex;align-items:stretch;text-align:left;justify-content:center;overflow:hidden}
+.slide[data-original="1"] .kicker{margin-bottom:25px;font-size:17px}
+.slide[data-original="1"] h2{font-size:94px;line-height:1.12;max-width:1250px;letter-spacing:-4px}
+.slide[data-original="1"] .lead{font-size:25px;margin-top:22px}
+.slide[data-original="1"] .capabilities{display:grid;grid-template-columns:repeat(5,1fr);gap:18px;margin-top:65px;width:100%}
+.slide[data-original="1"] .capabilities span{position:relative;display:flex;flex-direction:column;justify-content:flex-end;min-height:250px;border:1px solid #ffffff4a;border-radius:25px;padding:30px 25px;font-size:29px;background:linear-gradient(145deg,#ffffff23,#ffffff08);box-shadow:0 22px 55px #002b6938;backdrop-filter:blur(14px);overflow:hidden;animation:card-drift 7s cubic-bezier(.45,0,.55,1) infinite alternate;animation-delay:calc(var(--card-index)*-.9s)}
+.slide[data-original="1"] .capabilities span:before{content:attr(data-number);position:absolute;top:24px;left:25px;color:#ffc402;font-size:22px;font-weight:600;letter-spacing:2px}
+.slide[data-original="1"] .capabilities small{display:block;font-size:16px;line-height:1.6;color:#ffffffb9;margin-top:18px;min-height:52px}
+.result-content{gap:26px;margin-top:46px}.result-story,.result-review>div{border:1px solid #ffffff40;border-radius:25px;background:linear-gradient(140deg,#ffffff1b,#ffffff08);box-shadow:0 22px 50px #00347330;padding:32px 36px}.result-review{display:grid;gap:22px}.result-review>div{padding:26px 32px}.result-story>p{max-width:none}.result-review>div:nth-child(2){transform:translateX(14px)}
+.slide.cover{padding-left:90px}.cover .aircraft{right:20px;width:790px;height:590px;top:125px}.cover .lead{border:1px solid #ffffff40;border-radius:24px;background:#ffffff12;padding:24px 32px;width:510px;box-shadow:0 22px 55px #00347330;font-size:26px;line-height:1.65;margin-top:25px}.cover h1{font-size:112px}.cover .line{margin-top:28px}
+@keyframes card-drift{from{transform:translateY(0)}to{transform:translateY(-5px)}}
+@media(prefers-reduced-motion:reduce){.slide[data-original="1"] .capabilities span{animation:none}}

@@ -1,0 +1,38 @@
+.cover .kicker{font-size:25px;letter-spacing:8px;margin-bottom:36px;z-index:2}.cover h1{z-index:2;font-size:116px;letter-spacing:-4px}.cover .lead{position:absolute;right:100px;left:auto;top:548px;margin:0;width:410px;padding:0;border:0;border-radius:0;background:none;box-shadow:none;backdrop-filter:none;font-size:30px;line-height:1.8;z-index:3}.cover .lead span{display:block;letter-spacing:1px}.cover .lead b{font-weight:500;color:#ffc402}.cover .aircraft{right:85px;top:65px;width:710px;height:535px;z-index:1;opacity:.9}.cover .aircraft path:not(.trail){stroke-width:1.5;stroke-dasharray:1800;stroke-dashoffset:0}.cover.active .aircraft path:not(.trail){animation:cover-plane-draw 2.2s cubic-bezier(.22,1,.36,1) both}.cover .aircraft .trail{stroke:#ffc40299;stroke-width:1.5;stroke-dasharray:5 12;animation:cover-trail-flow 8s linear infinite}.cover .line{position:relative;z-index:2;margin-top:40px;width:85px}.cover-fx{position:absolute;inset:0;pointer-events:none;overflow:hidden;background:radial-gradient(ellipse at 75% 32%,#5ccfff25,transparent 42%)}.cover-orbit{position:absolute;left:60%;top:38%;width:600px;height:600px;border:1px solid #ffffff17;border-radius:50%;transform:translate(-50%,-50%) rotateX(58deg) rotate(-25deg)}.orbit-one:after{content:'';position:absolute;inset:-2px;border:2px solid transparent;border-top-color:#8de7ff99;border-right-color:#8de7ff15;border-radius:50%;animation:cover-orbit-spin 9s linear infinite}.orbit-two{width:810px;height:810px;rotate:22deg;border-style:dashed;border-color:#ffffff13;animation:cover-orbit-breathe 5s ease-in-out infinite alternate}.orbit-three{width:1030px;height:1030px;rotate:-16deg;border-color:#ffffff0d}.cover-horizon{position:absolute;width:1000px;height:1px;right:-140px;top:52%;background:linear-gradient(90deg,transparent,#82e1ff88,transparent);rotate:-35deg;box-shadow:0 0 24px #8de7ff55;animation:cover-light-pass 5s cubic-bezier(.22,1,.36,1) infinite}.cover-spark{position:absolute;left:var(--spark-x);top:var(--spark-y);width:3px;height:3px;border-radius:50%;background:#b3efff;box-shadow:0 0 12px #b3efff;animation:cover-spark-drift 4s ease-in-out infinite;animation-delay:var(--spark-delay)}
+@keyframes cover-plane-draw{from{stroke-dashoffset:1800}to{stroke-dashoffset:0}}@keyframes cover-trail-flow{to{stroke-dashoffset:-170}}@keyframes cover-orbit-spin{to{transform:rotate(360deg)}}@keyframes cover-orbit-breathe{to{opacity:.35;scale:1.04}}@keyframes cover-light-pass{0%{translate:-100px 65px;opacity:0}35%{opacity:.8}100%{translate:180px -100px;opacity:0}}@keyframes cover-spark-drift{0%,100%{translate:0 0;opacity:.15}50%{translate:14px -18px;opacity:.8}}
+/* Preserve the original cover composition: left title and slogans, right aircraft. */
+.cover .video-brand{display:flex}
+.cover .kicker:before{display:none}
+/* 航司 logo 白卡：位置/尺寸以 cover-motion.css 末尾规则为准，需覆盖 knowledge-base-demo.css */
+.cover-logo-card{position:absolute;left:90px;top:210px;z-index:4;display:flex;align-items:center;justify-content:center;width:200px;height:50px;padding:0 12px;background:#fff;border-radius:6px;box-shadow:0 6px 18px #003a1f24}
+.cover-logo-card .cover-logo{position:static;left:auto;top:auto;z-index:auto;display:block;width:100%;height:auto;max-width:176px;opacity:1}
+.cover-airline-logo{position:relative;z-index:4;padding:10px 15px;background:#fff;border:0;border-radius:10px;box-shadow:0 12px 35px #00316825}
+.cover-airline-logo>div{position:relative;width:228px;height:48px;overflow:hidden}
+.cover-airline-logo>div{background:#fff}
+.cover-airline-logo img{display:block;width:284px;height:48px;max-width:none;filter:none}
+.cover-english{position:relative;z-index:2;margin-top:24px;font-size:21px;letter-spacing:3px;line-height:1.5;color:#ffffffb8}
+.cover-airline-logo .logo-white-wordmark{display:none}
+.cover .kicker{position:relative;left:auto;top:auto;font-size:18px;letter-spacing:4px;margin-bottom:42px}
+.cover h1{font-size:112px;letter-spacing:-5px;white-space:normal}
+.cover .lead{position:absolute;right:100px;left:auto;top:548px;margin:0;width:410px;padding:0;font-size:30px;line-height:1.8;background:none;border:0;box-shadow:none}
+.cover .lead span{letter-spacing:0}
+.cover .aircraft{right:85px;top:65px;width:710px;height:535px}
+.cover .line{margin-top:28px;width:64px}
+@media(prefers-reduced-motion:reduce){.cover-fx *,.cover.active .aircraft path{animation:none!important}}
+
+/* Keep the full system title and all three slogan lines visible. */
+.slide.cover h1{position:absolute;left:90px;top:308px;width:850px;font-size:64px;line-height:1.42;letter-spacing:-2px;margin:0}
+.slide.cover .cover-english{position:absolute;left:94px;top:508px;width:850px;margin:0;font-size:16px;letter-spacing:2px;line-height:1.6}
+.slide.cover .lead{top:560px;right:100px;width:410px;font-size:30px;line-height:1.8;max-height:none;overflow:visible}
+.slide.cover .lead span{display:block;white-space:nowrap;opacity:1;visibility:inherit}
+
+/* Place the decorative rule below the English subtitle. */
+.slide.cover .line{position:absolute;left:94px;top:566px;margin:0;width:64px;height:6px;z-index:2}
+
+/* Cover slogans follow the slide visibility and never leak onto other pages. */
+.slide.cover:not(.active) .lead{visibility:hidden!important;opacity:0!important;pointer-events:none}
+
+/* Increase cover row spacing to fill more of the vertical composition. */
+.slide.cover h1{line-height:1.8}
+.slide.cover .cover-english{top:586px}
+.slide.cover .line{top:654px}
